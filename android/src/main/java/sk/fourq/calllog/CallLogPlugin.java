@@ -55,18 +55,19 @@ public class CallLogPlugin implements MethodCallHandler, PluginRegistry.RequestP
         request = c;
         result = r;
 
-        String[] perm = {Manifest.permission.READ_PHONE_STATE};
-        if (hasPermissions(perm)) {
+        // String[] perm = {Manifest.permission.READ_PHONE_STATE};
+        // if (hasPermissions(perm)) {
             handleCall();
-        } else {
-            if(registrar.activity() != null){
-                ActivityCompat.requestPermissions(
-                registrar.activity(), perm, 0);
-            } else {
-                r.error("MISSING_PERMISSIONS", "Permission READ_CALL_LOG or READ_PHONE_STATE is required for plugin. Hovewer, plugin is unable to request permission because of background execution.", null);
-            }
-        }
+        // } else {
+        //     if(registrar.activity() != null){
+        //         ActivityCompat.requestPermissions(
+        //         registrar.activity(), perm, 0);
+        //     } else {
+        //         r.error("MISSING_PERMISSIONS", "Permission READ_CALL_LOG or READ_PHONE_STATE is required for plugin. Hovewer, plugin is unable to request permission because of background execution.", null);
+        //     }
+        // }
     }
+/*
 
     private boolean hasPermissions(String[] permissions) {
         for(String perm : permissions) {
@@ -76,7 +77,6 @@ public class CallLogPlugin implements MethodCallHandler, PluginRegistry.RequestP
         }
         return true;
     }
-
     @Override
     public boolean onRequestPermissionsResult(int requestCode, String[] strings, int[] grantResults) {
         if (requestCode == 0) {
@@ -98,7 +98,7 @@ public class CallLogPlugin implements MethodCallHandler, PluginRegistry.RequestP
             return false;
         }
     }
-
+*/
     private void handleCall() {
         switch (request.method) {
             case "get":
