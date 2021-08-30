@@ -55,7 +55,7 @@ public class CallLogPlugin implements MethodCallHandler, PluginRegistry.RequestP
         request = c;
         result = r;
 
-        String[] perm = {Manifest.permission.READ_CALL_LOG, Manifest.permission.READ_PHONE_STATE};
+        String[] perm = {Manifest.permission.READ_PHONE_STATE};
         if (hasPermissions(perm)) {
             handleCall();
         } else {
